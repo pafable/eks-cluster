@@ -8,8 +8,11 @@ create: plan
 plan: init
 	$(TF) -chdir=terraform plan -var-file=vars.tfvars -out plan
 
-init:
+init: fmt
 	$(TF) -chdir=terraform init
+
+fmt:
+	$(TF) -chdir=terraform fmt
 
 destroy:
 	$(TF) -chdir=terraform destroy -var-file=vars.tfvars -auto-approve

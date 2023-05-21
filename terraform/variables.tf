@@ -15,7 +15,7 @@ variable "eks_nodegroup_role" {
 }
 
 variable "eks_version" {
-  type = string
+  type = number
 }
 
 variable "environment" {

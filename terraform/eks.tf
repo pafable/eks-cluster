@@ -1,5 +1,5 @@
 resource "aws_eks_cluster" "my_cluster" {
-  name     = var.eks_cluster_name
+  name     = "${var.owner}-eks-cluster-${var.region}"
   role_arn = data.aws_iam_role.eks_cluster_role.arn
   version  = var.eks_version
   vpc_config {
@@ -10,13 +10,13 @@ resource "aws_eks_cluster" "my_cluster" {
 resource "aws_eks_node_group" "my_node_group" {
   cluster_name    = aws_eks_cluster.my_cluster.name
   instance_types  = [var.eks_nodegroup_instance_type]
-  node_group_name = "phil-${var.eks_nodegroup_role}"
+  node_group_name = "${var.owner}-${var.eks_nodegroup_role}-${var.region}"
   node_role_arn   = data.aws_iam_role.eks_nodegroup_role.arn
   subnet_ids      = data.aws_subnets.default.ids
   version         = aws_eks_cluster.my_cluster.version
 
   labels = {
-    app = "phil-eks-${var.environment}"
+    app = "${var.owner}-eks-${var.environment}"
   }
 
   scaling_config {
