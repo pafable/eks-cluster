@@ -1,13 +1,13 @@
-output "role_arn" {
-  value = data.aws_iam_role.eks_cluster_role.arn
+output "eks_cluster_role_arn" {
+  value = aws_iam_role.eks_cluster_role.arn
+}
+
+output "eks_nodegroup_role_arn" {
+  value = aws_iam_role.eks_nodegroup_role.arn
 }
 
 output "eks_arn" {
   value = aws_eks_cluster.my_cluster.arn
-}
-
-output "eks_cluster_id" {
-  value = aws_eks_cluster.my_cluster.cluster_id
 }
 
 output "eks_id" {

@@ -1,14 +1,44 @@
-data "aws_iam_role" "eks_cluster_role" {
-  name = var.eks_cluster_role_name
-}
-
-data "aws_iam_role" "eks_nodegroup_role" {
-  name = var.eks_nodegroup_role
-}
-
 data "aws_subnets" "default" {
   filter {
     name   = "vpc-id"
     values = [var.vpc_id]
+  }
+}
+
+data "aws_iam_policy" "eks_nodegroup_ecr_policy" {
+  name = "AmazonEC2ContainerRegistryReadOnly"
+}
+
+data "aws_iam_policy" "eks_nodegroup_eksworker_policy" {
+  name = "AmazonEKSWorkerNodePolicy"
+}
+
+data "aws_iam_policy" "eks_nodegroup_ec2_policy" {
+  name = "AmazonEC2FullAccess"
+}
+
+data "aws_iam_policy_document" "eks_nodegroup_policy" {
+  statement {
+    actions = ["sts:AssumeRole"]
+    effect  = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+  }
+}
+
+data "aws_iam_policy" "eks_cluster_policy" {
+  name = "AmazonEKSClusterPolicy"
+}
+
+data "aws_iam_policy_document" "eks_cluster_policy" {
+  statement {
+    actions = ["sts:AssumeRole"]
+    effect  = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["eks.amazonaws.com"]
+    }
   }
 }
