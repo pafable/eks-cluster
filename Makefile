@@ -14,5 +14,5 @@ init: fmt
 fmt:
 	$(TF) -chdir=terraform fmt
 
-destroy:
+destroy: fmt
 	$(TF) -chdir=terraform destroy -var-file=vars.tfvars -auto-approve
