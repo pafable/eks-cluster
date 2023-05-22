@@ -1,3 +1,7 @@
+variable "disk_size" {
+  type    = number
+}
+
 variable "eks_nodegroup_instance_type" {
   type = string
 }

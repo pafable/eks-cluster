@@ -7,6 +7,8 @@ Creates an EKS cluster using terraform.
 
 ## Creating a tfvars file
 Create a .tfvars file within the terraform folder and populate it with the following values.
+
+Replace `<VALUE>` with your own.
 ```shell
 eks_nodegroup_instance_type = <INSTANCE TYPE>
 eks_nodegroup_role          = <NODE_GROUP_NAME>
@@ -15,6 +17,7 @@ environment                 = <ENVIRONMENT_NAME>
 owner                       = <OWNER_NAME>
 region                      = <AWS_REGION>
 vpc_id                      = <VPC_ID>
+disk_size                   = <DISK_SIZE>
 ```
 ## Create Cluster
 ```shell

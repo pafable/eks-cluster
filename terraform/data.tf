@@ -13,8 +13,8 @@ data "aws_iam_policy" "eks_nodegroup_eksworker_policy" {
   name = "AmazonEKSWorkerNodePolicy"
 }
 
-data "aws_iam_policy" "eks_nodegroup_ec2_policy" {
-  name = "AmazonEC2FullAccess"
+data "aws_iam_policy" "eks_nodegroup_cni_policy" {
+  name = "AmazonEKS_CNI_Policy"
 }
 
 data "aws_iam_policy_document" "eks_nodegroup_policy" {
