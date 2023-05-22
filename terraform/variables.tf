@@ -1,12 +1,8 @@
 variable "disk_size" {
-  type    = number
+  type = number
 }
 
 variable "eks_nodegroup_instance_type" {
-  type = string
-}
-
-variable "eks_nodegroup_role" {
   type = string
 }
 

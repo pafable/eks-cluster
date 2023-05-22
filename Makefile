@@ -17,5 +17,5 @@ fmt:
 destroy: fmt
 	$(TF) -chdir=terraform destroy -var-file=vars.tfvars -auto-approve
 
-test: fmt
+test: fmt plan
 	$(TF) -chdir=terraform validate
