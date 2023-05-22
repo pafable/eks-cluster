@@ -1,6 +1,6 @@
 TF = $(shell which terraform)
 
-.PHONY: create plan init destroy
+.PHONY: create plan init fmt destroy test
 
 create: plan
 	$(TF) -chdir=terraform apply plan
