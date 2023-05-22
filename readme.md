@@ -11,13 +11,12 @@ Create a .tfvars file within the terraform folder and populate it with the follo
 Replace `<VALUE>` with your own.
 ```shell
 eks_nodegroup_instance_type = <INSTANCE TYPE>
-eks_nodegroup_role          = <NODE_GROUP_NAME>
-eks_version                 = <EKS_VERSION>
-environment                 = <ENVIRONMENT_NAME>
-owner                       = <OWNER_NAME>
-region                      = <AWS_REGION>
-vpc_id                      = <VPC_ID>
-disk_size                   = <DISK_SIZE>
+eks_version                 = <EKS VERSION>
+environment                 = <ENVIRONMENT NAME>
+owner                       = <OWNER NAME>
+region                      = <AWS REGION>
+vpc_id                      = <VPC ID>
+disk_size                   = <DISK SIZE>
 ```
 ## Create Cluster
 ```shell
