@@ -1,5 +1,5 @@
 # EKS Cluster
-Creates an EKS cluster using terraform.
+Creates an EKS cluster using terraform. The cluster uses both managed EC2 node groups and Fargate.
 
 ## Requirements
 - AWS CLI installed and configured
@@ -44,8 +44,3 @@ When complete destroy the cluster with the following command.
 ```shell
 make destroy
 ```
-
-aws eks \
-    --region us-east-2 \
-    update-kubeconfig \
-    --name pafable-poc-eks-us-east-2
