@@ -5,6 +5,18 @@ data "aws_subnets" "default" {
   }
 }
 
+data "aws_subnets" "private" {
+  filter {
+    name   = "vpc-id"
+    values = [var.vpc_id]
+  }
+
+  tags = {
+    type = "private"
+  }
+}
+
+# EKS Node Group Data
 data "aws_iam_policy" "eks_nodegroup_ecr_policy" {
   name = "AmazonEC2ContainerRegistryReadOnly"
 }
@@ -41,4 +53,20 @@ data "aws_iam_policy_document" "eks_cluster_policy" {
       identifiers = ["eks.amazonaws.com"]
     }
   }
+}
+
+# EKS Fargate Profile Data
+data "aws_iam_policy_document" "eks_fargate_policy" {
+  statement {
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["eks-fargate-pods.amazonaws.com"]
+    }
+  }
+}
+
+data "aws_iam_policy" "fargate_policy" {
+  name = "AmazonEKSFargatePodExecutionRolePolicy"
 }

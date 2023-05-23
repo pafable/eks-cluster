@@ -13,7 +13,12 @@ provider "aws" {
     tags = {
       environment = var.environment
       owner       = var.owner
+      region      = var.region
     }
   }
   region = var.region
+}
+
+locals {
+  cluster_name = "${var.owner}-${var.environment}-eks"
 }
