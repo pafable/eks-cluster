@@ -1,5 +1,6 @@
 # EKS Cluster
-Creates an EKS cluster using terraform. The cluster uses both managed EC2 node groups and Fargate.
+Creates an EKS cluster using terraform. 
+The cluster uses both managed EC2 node groups and Fargate.
 
 ## Requirements
 - AWS CLI installed and configured
@@ -7,7 +8,7 @@ Creates an EKS cluster using terraform. The cluster uses both managed EC2 node g
 - Kubectl
 
 ## Creating a tfvars file
-Create a .tfvars file within the terraform folder and populate it with the following values.
+Create a tfvars file within the terraform folder and populate it with the following values.
 
 Replace `<VALUE>` with your own.
 ```shell
@@ -26,7 +27,7 @@ make create
 ```
 
 ## Connecting to the cluster
-Use `aws` command to update kubeconfig
+Use `aws` command to update kubeconfig.
 ```shell
 aws eks \
   --region <AWS REGION> \
@@ -34,7 +35,8 @@ aws eks \
   --name <CLUSTER NAME>
 ```
 
-Verify connection with `kubectl`. You should see your node groups and Fargate nodes.
+Verify connection with `kubectl`. 
+You should see your node groups and Fargate nodes.
 ```shell
 kubectl get nodes
 ```
