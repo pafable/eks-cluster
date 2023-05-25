@@ -14,7 +14,7 @@ Replace `<VALUE>` with your own.
 ```shell
 eks_nodegroup_instance_type = <INSTANCE TYPE> # default: t3.medium
 eks_version                 = <EKS VERSION> # default: 1.26
-environment                 = <ENVIRONMENT NAME>
+environment                 = <ENVIRONMENT NAME> # default: poc
 owner                       = <OWNER NAME>
 region                      = <AWS REGION>
 vpc_id                      = <VPC ID>
