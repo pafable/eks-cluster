@@ -13,7 +13,7 @@ Create a tfvars file within the terraform folder and populate it with the follow
 Replace `<VALUE>` with your own.
 ```shell
 eks_nodegroup_instance_type = <INSTANCE TYPE> # default: t3.medium
-eks_version                 = <EKS VERSION> # default: 1.26
+eks_version                 = <EKS VERSION> # default: 1.27
 environment                 = <ENVIRONMENT NAME> # default: poc
 owner                       = <OWNER NAME>
 region                      = <AWS REGION>
