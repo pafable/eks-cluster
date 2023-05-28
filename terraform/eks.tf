@@ -28,7 +28,7 @@ resource "aws_eks_node_group" "my_node_group" {
   }
 
   update_config {
-    max_unavailable = var.environment == "poc" ? 0 : 2
+    max_unavailable = var.environment == "poc" ? 1 : 2
   }
 }
 
