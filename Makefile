@@ -5,6 +5,9 @@ TF = $(shell which terraform)
 create: plan
 	$(TF) -chdir=terraform apply plan
 
+deploy: create
+	helm install nginx-app-1 charts/nginx
+
 plan: init
 	$(TF) -chdir=terraform plan -var-file=vars.tfvars -out plan
 

@@ -1,0 +1,9 @@
+appName: myHelmApp
+namespace: default
+configmap:
+  name: helmappconfigv1
+  data:
+    CUSTOM_HEADER: "This app is lit!"
+image:
+  name: devopsjourney1/mywebapp
+  tag: latest

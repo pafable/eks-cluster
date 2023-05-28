@@ -1,0 +1,4 @@
+namespace: dev
+configmap:
+  data:
+    CUSTOM_HEADER: "This app is fire!"

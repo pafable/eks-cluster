@@ -1,44 +1,44 @@
 variable "disk_size" {
-  type    = number
+  type        = number
   description = "EBS volume size"
-  default = 20
+  default     = 20
 }
 
 variable "eks_nodegroup_instance_type" {
-  type    = string
+  type        = string
   description = "EC2 instance type"
-  default = "t3.medium"
+  default     = "t3.medium"
 }
 
 variable "eks_version" {
-  type    = number
+  type        = number
   description = "Kubernetes version"
-  default = 1.26
+  default     = 1.26
 }
 
 variable "environment" {
-  type = string
+  type        = string
   description = "Environment for this project. Default is poc = proof of concept "
-  default = "poc"
+  default     = "poc"
 }
 
 variable "kubernetes_namespace" {
-  type    = string
+  type        = string
   description = "Sets kubernetes namespace"
-  default = "default"
+  default     = "default"
 }
 
 variable "owner" {
-  type = string
+  type        = string
   description = "Owner of this cluster"
 }
 
 variable "region" {
-  type = string
+  type        = string
   description = "AWS region to deploy the cluster to"
 }
 
 variable "vpc_id" {
-  type = string
+  type        = string
   description = "VPC id to deploy node groups to"
 }
