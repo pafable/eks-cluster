@@ -27,5 +27,5 @@ test: fmt plan
 	$(TF) -chdir=terraform/eks-cluster validate
 	$(TF) -chdir=terraform/helm-apps/example-app validate
 
-update-kubeconf:
+update-kube:
 	aws eks --region $(region) update-kubeconfig --name $(cluster)
