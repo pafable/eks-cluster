@@ -21,8 +21,8 @@ fmt:
 	$(TF) -chdir=terraform/helm-apps/example-app fmt
 
 destroy: fmt
-	$(TF) -chdir=terraform/helm-apps/example-app destroy -var-file=../../vars.tfvars -auto-approve
-	$(TF) -chdir=terraform/eks-cluster destroy -var-file=../../../vars.tfvars -auto-approve
+	$(TF) -chdir=terraform/helm-apps/example-app destroy -var-file=../../../vars.tfvars -auto-approve
+	$(TF) -chdir=terraform/eks-cluster destroy -var-file=../../vars.tfvars -auto-approve
 
 test: fmt plan
 	$(TF) -chdir=terraform/eks-cluster validate
