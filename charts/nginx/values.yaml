@@ -7,4 +7,5 @@ configmap:
 image:
   name: nginx
   tag: latest
+port: 80
 replicas: 2
