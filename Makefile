@@ -1,6 +1,6 @@
 TF = $(shell which terraform)
 
-.PHONY: create deploy plan init fmt destroy test
+.PHONY: create deploy plan init fmt destroy test update-kubeconf
 
 create: plan
 	$(TF) -chdir=terraform/eks-cluster apply plan
@@ -26,3 +26,6 @@ destroy: fmt
 test: fmt plan
 	$(TF) -chdir=terraform/eks-cluster validate
 	$(TF) -chdir=terraform/helm-apps/example-app validate
+
+update-kubeconf:
+	aws eks --region $(region) update-kubeconfig --name $(cluster)

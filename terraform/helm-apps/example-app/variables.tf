@@ -4,11 +4,6 @@ variable "environment" {
   default     = "poc"
 }
 
-variable "kube_config" {
-  type    = string
-  default = "~/.kube/config"
-}
-
 variable "owner" {
   type        = string
   description = "Owner of this cluster"

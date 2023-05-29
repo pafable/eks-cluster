@@ -29,7 +29,6 @@ provider "aws" {
 }
 
 provider "helm" {
-  alias = "eks_cluster"
   kubernetes {
     host                   = data.aws_eks_cluster.tf_eks_cluster.endpoint
     cluster_ca_certificate = base64decode(data.aws_eks_cluster.tf_eks_cluster.certificate_authority[0].data)
