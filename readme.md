@@ -5,10 +5,12 @@ The cluster uses both managed EC2 node groups and Fargate.
 ## Requirements
 - AWS CLI installed and configured
 - Terraform 1.4.6+
-- Kubectl
+- Kubectl 1.27
 
 ## Creating a tfvars file
-Create a tfvars file within the terraform folder and populate it with the following values.
+Create a tfvars file within the root of this folder and populate it with the following values.
+
+Owner, region, and vpc_id are required and have no default values.
 
 Replace `<VALUE>` with your own.
 ```shell
@@ -21,7 +23,7 @@ vpc_id                      = <VPC ID>
 disk_size                   = <DISK SIZE> # default: 20
 ```
 
-## Create Cluster
+## Create EKS Cluster
 ```shell
 make create
 ```
@@ -41,8 +43,22 @@ You should see your node groups and Fargate nodes.
 kubectl get nodes
 ```
 
+## Deploying example app
+```shell
+make deploy
+```
+
 ## Destroy Cluster
 When complete destroy the cluster with the following command.
 ```shell
 make destroy
+```
+
+## NOTES
+
+If kubectl is unable to connect due to an invalid apiVersion "error: exec plugin: invalid apiVersion "client.authentication.k8s.io/v1alpha1".
+
+Enter the following command:
+```shell
+curl -L https://git.io/get_helm.sh | bash -s -- --version v3.8.2
 ```

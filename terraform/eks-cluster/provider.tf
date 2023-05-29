@@ -20,5 +20,5 @@ provider "aws" {
 }
 
 locals {
-  cluster_name = "${var.owner}-${var.environment}-eks"
+  cluster_name = "${var.owner}-${var.environment}-eks-${var.region}"
 }
