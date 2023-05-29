@@ -6,6 +6,7 @@ The cluster uses both managed EC2 node groups and Fargate.
 - AWS CLI installed and configured
 - Terraform 1.4.6+
 - Kubectl 1.27
+- If using Windows OS, use WSL2
 
 ## Creating a tfvars file
 Create a tfvars file within the root of this folder and populate it with the following values.
