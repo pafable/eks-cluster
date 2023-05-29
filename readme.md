@@ -47,7 +47,7 @@ kubectl get nodes
 ## Deploying example app
 Update kubeconfig
 ```shell
-make update-kube region=<AWS REGION> --name <CLUSTER NAME>
+make update-kube region=<AWS REGION> cluster=<CLUSTER NAME>
 ```
 
 ```shell
