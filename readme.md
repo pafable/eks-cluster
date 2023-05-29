@@ -6,6 +6,7 @@ The cluster uses both managed EC2 node groups and Fargate.
 - AWS CLI installed and configured
 - Terraform 1.4.6+
 - Kubectl 1.27
+- Helm 3.8.2+
 - If using Windows OS, use WSL2
 
 ## Creating a tfvars file
@@ -52,6 +53,11 @@ make update-kube region=<AWS REGION> cluster=<CLUSTER NAME>
 
 ```shell
 make deploy
+```
+
+## Check status of deploy app
+```shell
+helm ls
 ```
 
 ## Destroy Cluster

@@ -5,6 +5,6 @@ configmap:
   data:
     CUSTOM_HEADER: "This app is lit!"
 image:
-  name: devopsjourney1/mywebapp
+  name: nginx
   tag: latest
 replicas: 2
