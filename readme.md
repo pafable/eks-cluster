@@ -1,5 +1,5 @@
 # EKS Cluster
-Creates an EKS cluster using terraform. 
+Creates an EKS cluster and deploys an app via helm charts using terraform. 
 The cluster uses both managed EC2 node groups and Fargate.
 
 ## Requirements

@@ -5,7 +5,7 @@ TF = $(shell which terraform)
 create: plan
 	$(TF) -chdir=terraform/eks-cluster apply plan
 
-deploy: create
+deploy:
 	$(TF) -chdir=terraform/helm-apps/example-app plan -var-file=../../../vars.tfvars -out plan
 	$(TF) -chdir=terraform/helm-apps/example-app apply plan
 
