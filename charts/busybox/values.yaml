@@ -1,0 +1,6 @@
+appName: busybox-test-app
+image:
+  name: busybox
+  tag: latest
+labels:
+  app: test

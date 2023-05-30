@@ -1,4 +1,4 @@
-appName: myhelmapp
+appName: example-app
 namespace: default
 configmap:
   name: helmappconfigv1
