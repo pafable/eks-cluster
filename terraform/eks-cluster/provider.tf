@@ -11,9 +11,11 @@ terraform {
 provider "aws" {
   default_tags {
     tags = {
-      environment = var.environment
-      owner       = var.owner
-      region      = var.region
+      environment   = var.environment
+      owner         = var.owner
+      region        = var.region
+      managed_by    = "terraform"
+      creation_date = timestamp()
     }
   }
   region = var.region

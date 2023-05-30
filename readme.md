@@ -30,15 +30,6 @@ disk_size                   = <DISK SIZE> # default: 20
 make create
 ```
 
-## Connecting to the cluster
-Use `aws` command to update kubeconfig.
-```shell
-aws eks \
-  --region <AWS REGION> \
-  update-kubeconfig \
-  --name <CLUSTER NAME>
-```
-
 Verify connection with `kubectl`. 
 You should see your node groups and Fargate nodes.
 ```shell
@@ -46,11 +37,6 @@ kubectl get nodes
 ```
 
 ## Deploying example app
-Update kubeconfig
-```shell
-make update-kube region=<AWS REGION> cluster=<CLUSTER NAME>
-```
-
 ```shell
 make deploy
 ```

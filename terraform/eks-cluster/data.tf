@@ -61,8 +61,11 @@ data "aws_iam_policy_document" "eks_fargate_policy" {
     actions = ["sts:AssumeRole"]
 
     principals {
-      type        = "Service"
-      identifiers = ["eks-fargate-pods.amazonaws.com"]
+      type = "Service"
+      identifiers = [
+        "eks.amazonaws.com",
+        "eks-fargate-pods.amazonaws.com"
+      ]
     }
   }
 }
