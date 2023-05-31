@@ -16,11 +16,6 @@ resource "aws_iam_role" "eks_fargate_role" {
   managed_policy_arns = [data.aws_iam_policy.fargate_policy.arn]
 }
 
-resource "aws_iam_role_policy_attachment" "fargate_attachment" {
-  policy_arn = data.aws_iam_policy.fargate_policy.arn
-  role       = aws_iam_role.eks_cluster_role.name
-}
-
 # EKS cluster
 resource "aws_iam_role" "eks_cluster_role" {
   name                = "${local.cluster_name}-cluster-role"
