@@ -2,6 +2,8 @@
 Creates an EKS cluster and deploys an app via helm charts using terraform. 
 The cluster uses both managed EC2 node groups and Fargate.
 
+An example app using an nginx container image will be deployed on a Fargate node.
+
 ## Requirements
 - AWS CLI installed and configured
 - Terraform 1.4.6+
