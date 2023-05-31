@@ -16,6 +16,7 @@ spec:
       labels:
         app: {{ .Values.appName }}
         tier: frontend
+        fargate: "true"
     spec: # Pod spec
       containers:
       - name: example-app-container
