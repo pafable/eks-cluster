@@ -5,7 +5,7 @@ EKS_DIR ?= 'terraform/eks-cluster'
 EX_APP_DIR ?= 'terraform/helm-apps/example-app'
 EX_APP ?= 'example-app'
 
-.PHONY: create deploy plan init fmt destroy test update-kubeconf
+.PHONY: create deploy plan init fmt destroy test update-kube
 
 create: plan
 	$(TF) -chdir=$(EKS_DIR) apply plan
