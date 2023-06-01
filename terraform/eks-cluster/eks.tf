@@ -9,6 +9,7 @@ resource "aws_eks_cluster" "my_cluster" {
 
 # Node group
 resource "aws_eks_node_group" "my_node_group" {
+  capacity_type   = var.environment == "poc" ? "SPOT" : "ON_DEMAND"
   cluster_name    = aws_eks_cluster.my_cluster.name
   disk_size       = var.disk_size
   instance_types  = [var.eks_nodegroup_instance_type]
@@ -22,7 +23,7 @@ resource "aws_eks_node_group" "my_node_group" {
   }
 
   scaling_config {
-    desired_size = var.environment == "poc" ? 2 : 3
+    desired_size = var.environment == "poc" ? 1 : 3
     max_size     = 3
     min_size     = 1
   }
