@@ -10,7 +10,7 @@ EX_APP ?= 'example-app'
 create: plan
 	$(TF) -chdir=$(EKS_DIR) apply plan
 
-deploy:
+deploy: create
 	$(TF) -chdir=$(EX_APP_DIR) plan -var-file=../../../vars.tfvars -out plan
 	$(TF) -chdir=$(EX_APP_DIR) apply plan
 	$(HELM) test $(EX_APP)

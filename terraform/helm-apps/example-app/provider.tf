@@ -32,18 +32,6 @@ provider "helm" {
   kubernetes {
     host                   = data.aws_eks_cluster.tf_eks_cluster.endpoint
     cluster_ca_certificate = base64decode(data.aws_eks_cluster.tf_eks_cluster.certificate_authority[0].data)
-
-    exec {
-      api_version = "client.authentication.k8s.io/v1beta1"
-      args = [
-        "--region",
-        var.region,
-        "eks",
-        "get-token",
-        "--cluster-name",
-        local.cluster_name
-      ]
-      command = "aws"
-    }
+    token                  = data.aws_eks_cluster_auth.tf_eks_cluster.token
   }
 }
