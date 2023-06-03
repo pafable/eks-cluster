@@ -1,3 +1,4 @@
+[![EKS-Cluster CI Test](https://github.com/pafable/eks-cluster/actions/workflows/ci.yaml/badge.svg)](https://github.com/pafable/eks-cluster/actions/workflows/ci.yaml)
 # EKS Cluster
 Creates an EKS cluster and deploys an app via helm charts using terraform. 
 The cluster uses both managed EC2 node groups and Fargate.
