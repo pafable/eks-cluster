@@ -2,7 +2,7 @@ name: EKS-Cluster CI Test
 on:
   push:
     branches:
-      - *
+      - '*'
 
 jobs:
   validate:
