@@ -6,7 +6,7 @@ EX_APP_DIR ?= 'terraform/helm-apps/example-app'
 EX_APP ?= 'example-app'
 KUBE_PROM_DIR ?= 'terraform/helm-apps/kube-prometheus-stack'
 
-.PHONY: create deploy plan init fmt destroy test update-kube
+.PHONY: create deploy plan init fmt destroy test
 
 create: plan
 	$(TF) -chdir=$(EKS_DIR) apply plan
@@ -40,6 +40,3 @@ test: fmt
 	$(TF) -chdir=$(KUBE_PROM_DIR) validate
 	$(TF) -chdir=$(EX_APP_DIR) validate
 	$(HELM) lint $(NGINX_CHART_DIR)
-
-update-kube:
-	aws eks --region $(region) update-kubeconfig --name $(cluster)

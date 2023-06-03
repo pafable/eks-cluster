@@ -4,6 +4,9 @@ The cluster uses both managed EC2 node groups and Fargate.
 
 An example app using an nginx container image will be deployed on a Fargate node.
 
+When the cluster is created prometheus and grafana are deployed onto the cluster. To access the Grafana UI port-forward to the grafana pod and use default creds.
+For more details, please see [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack).
+
 ## Requirements
 - AWS CLI installed and configured
 - Terraform 1.4.6+
