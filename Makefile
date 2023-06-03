@@ -1,9 +1,13 @@
 HELM = $(shell which helm)
 TF = $(shell which terraform)
+EX_APP ?= 'example-app'
+
+# Helm chart dir
 NGINX_CHART_DIR ?= 'charts/nginx'
+
+# Terraform dir
 EKS_DIR ?= 'terraform/eks-cluster'
 EX_APP_DIR ?= 'terraform/helm-apps/example-app'
-EX_APP ?= 'example-app'
 KUBE_PROM_DIR ?= 'terraform/helm-apps/kube-prometheus-stack'
 
 .PHONY: create deploy plan init fmt destroy test

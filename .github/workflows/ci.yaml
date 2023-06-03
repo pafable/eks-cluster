@@ -1,0 +1,13 @@
+name: EKS-Cluster CI Test
+on:
+  push:
+    branches:
+      - *
+
+jobs:
+  validate:
+    continue-on-error: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Tests
+        run: make test
