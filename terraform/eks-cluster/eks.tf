@@ -23,7 +23,7 @@ resource "aws_eks_node_group" "my_node_group" {
   }
 
   scaling_config {
-    desired_size = var.environment == "poc" ? 1 : 3
+    desired_size = var.environment == "poc" ? 2 : 3
     max_size     = 3
     min_size     = 1
   }
