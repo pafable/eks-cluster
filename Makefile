@@ -39,7 +39,7 @@ fmt:
 destroy: fmt
 	$(TF) -chdir=$(EKS_DIR) destroy -var-file=../../vars.tfvars -auto-approve
 
-test: fmt
+test: init
 	$(TF) -chdir=$(EKS_DIR) validate
 	$(TF) -chdir=$(KUBE_PROM_DIR) validate
 	$(TF) -chdir=$(EX_APP_DIR) validate
