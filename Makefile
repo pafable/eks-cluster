@@ -29,7 +29,7 @@ init: fmt
 
 fmt:
 	$(TF) -chdir=$(EKS_DIR) fmt
-	$(TF) -chdir=$(KUBE_PROM_DIR) init
+	$(TF) -chdir=$(KUBE_PROM_DIR) fmt
 	$(TF) -chdir=$(EX_APP_DIR) fmt
 
 destroy: fmt
