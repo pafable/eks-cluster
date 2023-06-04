@@ -4,4 +4,8 @@ resource "helm_release" "kube-prom-stack" {
   name             = "kube-prom-stack"
   namespace        = "monitoring"
   repository       = "https://prometheus-community.github.io/helm-charts"
+  set {
+    name  = "fargate"
+    value = true
+  }
 }

@@ -54,13 +54,10 @@ resource "aws_eks_fargate_profile" "my_fargate_profile" {
 # Fargate kube-prometheus-stack profile
 resource "aws_eks_fargate_profile" "kube_prom_fargate_profile" {
   cluster_name           = aws_eks_cluster.my_cluster.name
-  fargate_profile_name   = "${local.cluster_name}-fargate-profile"
+  fargate_profile_name   = "${local.cluster_name}-fargate-monitoring-profile"
   pod_execution_role_arn = aws_iam_role.eks_fargate_role.arn
   subnet_ids             = data.aws_subnets.private.ids
   selector {
     namespace = var.monitoring_namespace
-    labels = {
-      fargate = "true"
-    }
   }
 }
