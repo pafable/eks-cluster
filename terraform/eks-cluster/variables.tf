@@ -42,3 +42,9 @@ variable "vpc_id" {
   type        = string
   description = "VPC id to deploy node groups to"
 }
+
+variable "monitoring_namespace" {
+  type        = string
+  description = "Monitoring namespace"
+  default     = "monitoring"
+}
