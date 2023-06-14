@@ -9,6 +9,7 @@ NGINX_CHART_DIR ?= 'charts/nginx'
 EKS_DIR ?= 'terraform/eks-cluster'
 EX_APP_DIR ?= 'terraform/helm-apps/example-app'
 KUBE_PROM_DIR ?= 'terraform/helm-apps/kube-prometheus-stack'
+ISTIO_DIR ?= 'terraform/helm-apps/istio'
 
 .PHONY: create deploy plan init fmt destroy test
 
@@ -22,6 +23,10 @@ deploy: create
 	$(TF) -chdir=$(EX_APP_DIR) plan -var-file=../../../vars.tfvars -out plan
 	$(TF) -chdir=$(EX_APP_DIR) apply plan
 	$(HELM) test $(EX_APP)
+
+deploy-istio: create
+	$(TF) -chdir=$(ISTIO_DIR) plan -var-file=../../../vars.tfvars -out plan
+	$(TF) -chdir=$(ISTIO_DIR) apply plan
 
 plan: init
 	$(TF) -chdir=$(EKS_DIR) plan -var-file=../../vars.tfvars -out plan
