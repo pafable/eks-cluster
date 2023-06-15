@@ -15,16 +15,18 @@ ISTIO_DIR ?= 'terraform/helm-apps/istio'
 
 create: plan
 	$(TF) -chdir=$(EKS_DIR) apply plan
+
+deploy_prom: create
 	# EKS cluster needs to be created before kube-prometheus-stack plan can be created
 	$(TF) -chdir=$(KUBE_PROM_DIR) plan -var-file=../../../vars.tfvars -out plan
 	$(TF) -chdir=$(KUBE_PROM_DIR) apply plan
 
-deploy: create
+deploy:
 	$(TF) -chdir=$(EX_APP_DIR) plan -var-file=../../../vars.tfvars -out plan
 	$(TF) -chdir=$(EX_APP_DIR) apply plan
 	$(HELM) test $(EX_APP)
 
-deploy-istio: create
+deploy_istio: create
 	$(TF) -chdir=$(ISTIO_DIR) plan -var-file=../../../vars.tfvars -out plan
 	$(TF) -chdir=$(ISTIO_DIR) apply plan
 
